@@ -1,6 +1,4 @@
-/* Styles for the ExpenseManagerApp.fxml */
 
-/* Set background color for the entire application */
 .root {
     -fx-background-color: #f2f2f2;
 }
@@ -10,30 +8,26 @@
     -fx-tab-max-width: 150px;
 }
 
-/* Styles for the "Enter your Salary" tab */
 .tab[text="Enter your Salary"] {
     -fx-background-color: #3498db; /* Background color for the tab */
     -fx-text-fill: grey; /* Text color for the tab label */
 }
 
-/* Styles for the "Manage Expenses" tab */
 .tab[text="Manage Expenses"] {
     -fx-background-color: #e74c3c; /* Background color for the tab */
     -fx-text-fill: white; /* Text color for the tab label */
 }
 
-/* Styles for the "Current Balance" tab */
 .tab[text="Current Balance"] {
     -fx-background-color: #27ae60; /* Background color for the tab */
     -fx-text-fill: white; /* Text color for the tab label */
 }
 
-/* Styles for labels */
 .label {
     -fx-font-size: 25px; /* Font size for labels */
 }
 
-/* Styles for text fields */
+
 .text-field {
     -fx-background-color: #ffffff; /* Background color for text fields */
     -fx-border-color: #ccc; /* Border color for text fields */
@@ -42,18 +36,16 @@
     -fx-padding: 5px; /* Padding for text fields */
 }
 
-/* Styles for buttons */
 .button {
     -fx-font-weight: bold; /* Font weight for buttons */
 }
 
-/* Styles for the "Submit Salary" button */
 #submitSalaryButton {
     -fx-background-color: #27ae60; /* Background color for submit button */
     -fx-text-fill: white; /* Text color for submit button */
 }
 
-/* Styles for the "Add Expense" button */
+
 #addExpenseButton {
     -fx-background-color: #e74c3c; /* Background color for add expense button */
     -fx-text-fill: white; /* Text color for add expense button */

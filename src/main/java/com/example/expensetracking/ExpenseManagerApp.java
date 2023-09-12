@@ -33,14 +33,11 @@ public class ExpenseManagerApp extends Application {
         primaryStage.setTitle("Expense Tracker");
 
         try {
-            // Establish database connection
             establishDBConnection();
 
-            // Load the FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ExpenseManagerApp.fxml"));
             Parent root = loader.load();
 
-            // Get the controller instance if needed
             ExpenseManagerController controller = loader.getController();
 
             TabPane tabPane = new TabPane();
@@ -71,7 +68,7 @@ public class ExpenseManagerApp extends Application {
             System.out.println("Connected to the database!");
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle any database connection errors here
+
         }
     }
 
@@ -87,27 +84,23 @@ public class ExpenseManagerApp extends Application {
 
         Button submitSalaryButton = new Button("Submit Salary");
         submitSalaryButton.setOnAction(e -> {
-            // Handle the "Submit Salary" button click event
+
             String name = employeeNameField.getText();
             String salaryAmountText = salaryAmountField.getText();
             if (!name.isEmpty() && !salaryAmountText.isEmpty()) {
                 try {
                     double salaryAmount = Double.parseDouble(salaryAmountText);
-                    // Store the salary details in the database
+
                     storeSalaryDetails(name, salaryAmount);
 
-                    // Show a success message in a pop-up window
                     showAlert("Success", "Your salary was successfully submitted.", Alert.AlertType.INFORMATION);
 
-                    // Optionally, you can clear the fields or provide feedback to the user
                     employeeNameField.clear();
                     salaryAmountField.clear();
                 } catch (NumberFormatException ex) {
-                    // Handle invalid input for salary amount (not a valid double)
                     showAlert("Error", "Invalid salary amount. Please enter a valid number.", Alert.AlertType.ERROR);
                 }
             } else {
-                // Handle empty name or salary amount fields
                 showAlert("Error", "Please enter both name and salary amount.", Alert.AlertType.ERROR);
             }
         });
@@ -127,7 +120,6 @@ public class ExpenseManagerApp extends Application {
         TextField expenseAmountField = new TextField();
         expenseAmountField.setPromptText("Expense Amount");
 
-        // ComboBox for expense categories
         ComboBox<String> expenseCategoryComboBox = new ComboBox<>();
         expenseCategoryComboBox.setPromptText("Select Category");
         expenseCategoryComboBox.getItems().addAll("Utility Payments", "Groceries", "Entertainment", "Other");
@@ -143,10 +135,9 @@ public class ExpenseManagerApp extends Application {
             String category = expenseCategoryComboBox.getValue();
             LocalDate date = expenseDateDatePicker.getValue();
 
-            // Store the expense details in the database
+
             storeExpenseDetails(name, amount, category, date);
 
-            // Optionally, you can clear the fields or provide feedback to the user
             expenseNameField.clear();
             expenseAmountField.clear();
             expenseCategoryComboBox.getSelectionModel().clearSelection();
@@ -160,7 +151,7 @@ public class ExpenseManagerApp extends Application {
     }
 
     private void storeSalaryDetails(String name, double amount) {
-        // Insert the salary details into the database
+
         try {
             String insertQuery = "INSERT INTO Salaries (employee_name, salary_amount) VALUES (?, ?)";
             PreparedStatement preparedStatement = dbConnection.prepareStatement(insertQuery);
@@ -170,12 +161,11 @@ public class ExpenseManagerApp extends Application {
             System.out.println("Salary details stored in the database.");
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle any database insertion errors here
         }
     }
 
     private void storeExpenseDetails(String name, double amount, String category, LocalDate date) {
-        // Insert the expense details into the database
+
         try {
             String insertQuery = "INSERT INTO Expenses (expense_name, expense_amount, expense_category, expense_date) VALUES (?, ?, ?, ?)";
             PreparedStatement preparedStatement = dbConnection.prepareStatement(insertQuery);
@@ -187,7 +177,7 @@ public class ExpenseManagerApp extends Application {
             System.out.println("Expense details stored in the database.");
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle any database insertion errors here
+
         }
     }
 
@@ -201,7 +191,6 @@ public class ExpenseManagerApp extends Application {
 
     @Override
     public void stop() {
-        // Close the database connection when the application is stopped
         try {
             if (dbConnection != null && !dbConnection.isClosed()) {
                 dbConnection.close();

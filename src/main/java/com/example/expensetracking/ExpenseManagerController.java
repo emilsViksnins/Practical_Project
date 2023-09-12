@@ -29,14 +29,12 @@ public class ExpenseManagerController {
     private Button addExpenseButton;
     @FXML
     private void submitSalary(ActionEvent event) {
-        // Handle the "Submit Salary" button click event here
+
     }
     @FXML
     private void addExpense(ActionEvent event) {
-        // Handle the "Add Expense" button click event here
+
     }
 }
 
-
-    // Add event handlers and logic here
 
