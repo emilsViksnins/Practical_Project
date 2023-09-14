@@ -11,17 +11,15 @@
 
 <VBox alignment="CENTER" prefHeight="340.0" prefWidth="579.0" spacing="20" style="-fx-background-color: linear-gradient(to bottom right, #A8E6CF, #DCEDC1);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.expensetracking.ExpenseManagerController">
    <ImageView fitHeight="57.0" fitWidth="61.0">
-      <image>
-         <Image url="@../../../../../../../../../Desktop/logo.png" />
-      </image>
+
    </ImageView>
 
     <!-- Expense Manager Title -->
-    <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #5C6B73;" text="Expense Manager" />
+    <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #5C6B73;" text="Expense Manager" />
 
     <TextField fx:id="salaryInput" alignment="CENTER" promptText="Enter Monthly Salary" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15; -fx-padding: 5 10; -fx-border-color: #81C784;" />
     <TextField fx:id="expenseInput" alignment="CENTER" promptText="Enter Expense Amount" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15; -fx-padding: 5 10; -fx-border-color: #81C784;" />
-    <TextField fx:id="commentInput" alignment="CENTER" promptText="Enter Expense Comment" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15; -fx-padding: 5 10; -fx-border-color: #81C784;" />
+    <TextField fx:id="commentInput" alignment="CENTER" promptText="Enter Expense Type" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15; -fx-padding: 5 10; -fx-border-color: #81C784;" />
 
     <Button onAction="#handleSubmit" style="-fx-background-color: linear-gradient(#66BB6A, #43A047); -fx-background-radius: 20; -fx-border-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 0,0,0,5);" text="Submit" textAlignment="CENTER" textFill="#FFFFFF">
         <cursor>
@@ -32,6 +30,6 @@
         </effect>
     </Button>
 
-    <Label fx:id="resultLabel" style="-fx-font-weight: bold; -fx-text-fill: #5C6B73;" text="Remaining Salary: " />
+    <Label fx:id="resultLabel" style="-fx-font-weight: bold; -fx-font-size: 20px; -fx-text-fill: #5C6B73;" text="Remaining Salary: " />
 
 </VBox>
