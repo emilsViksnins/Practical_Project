@@ -15,7 +15,7 @@ public class ExpenseManagerApp extends Application {
 
         private static final String DB_URL = "jdbc:mysql://localhost:3306/expense_manager";
         private static final String USER = "root";
-        private static final String PASS = "cratislpg777";
+        private static final String PASS = "root";
 
         public static void main(String[] args) {
                 launch(args);
