@@ -1,10 +1,10 @@
 # Expense Tracking Application
 
-// Screen shot to be added.
+//Screenshot to be added.
 
 ## Description
-The Expense Tracking Application is a JavaFx based application to help people to manage their personal or business expenses efficiently.
-Application provides interface to input, categorize, and track expenses, helping users maintain financial records.
+The Expense Tracking Application is a JavaFx-based application to help people manage their personal expenses efficiently.
+The application provides an interface to input, categorize, and track expenses, helping users maintain financial records.
 
 ## Prerequisites for launching
  - Maven
@@ -12,9 +12,12 @@ Application provides interface to input, categorize, and track expenses, helping
 
 
 ## Features
-- Categories for organizing expenses(e.g., food, utilities,).
+- Categories for organizing expenses of your choice.
 - Data storage in a MySQL database.
 - Viewing and editing of expense records.
 
-## Installation
-
+## Launch procedure
+- Git clone this repository locally.
+- verify that MySQL is running on the target system.
+- Create a database named: ExpenseManager.
+- Create a table named: transactions.
