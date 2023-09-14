@@ -1,72 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="253.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.expensetracking.ExpenseManagerController">
+<VBox alignment="CENTER" prefHeight="340.0" prefWidth="579.0" spacing="20" style="-fx-background-color: linear-gradient(to bottom right, #A8E6CF, #DCEDC1);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.expensetracking.ExpenseManagerController">
+   <ImageView fitHeight="57.0" fitWidth="61.0">
+      <image>
+         <Image url="@../../../../../../../../../Desktop/logo.png" />
+      </image>
+   </ImageView>
 
-    <stylesheets>
-        <URL value="@styles.css" />
-    </stylesheets>
+    <!-- Expense Manager Title -->
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #5C6B73;" text="Expense Manager" />
 
-    <center>
-        <TabPane fx:id="tabPane" prefHeight="253.0" prefWidth="542.0" tabClosingPolicy="UNAVAILABLE">
-            <tabs>
-                <Tab text="Enter your Salary">
-                    <content>
-                        <VBox alignment="CENTER" prefHeight="221.0" prefWidth="398.0" spacing="10">
-                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="59.0" prefWidth="328.0" text="Enter your Monthly Salary" textAlignment="CENTER" textFill="#171717">
-                                <font>
-                                    <Font name="Futura Medium" size="33.0" />
-                                </font>
-                            </Label>
-                            <TextField fx:id="employeeNameField" alignment="CENTER" promptText="Name" />
-                            <TextField id="nuberInputField" fx:id="salaryAmountField" accessibleRole="TABLE_CELL" alignment="CENTER" promptText="Salary Amount" />
-                            <Button fx:id="submitSalaryButton" onAction="#submitSalary" styleClass="submit-button" text="Submit Salary" textFill="#14d050">
-                                <effect>
-                                    <InnerShadow />
-                                </effect>
-                            </Button>
-                        </VBox>
-                    </content>
-                </Tab>
-                <Tab text="Manage Expenses">
-                    <content>
-                        <VBox alignment="CENTER" spacing="10">
-                            <Label text="Manage Expenses" textAlignment="CENTER">
-                                <font>
-                                    <Font name="System Bold" size="24" />
-                                </font>
-                            </Label>
-                            <TextField fx:id="expenseNameField" alignment="CENTER" promptText="Expense Name" />
-                            <TextField fx:id="expenseAmountField" alignment="CENTER" promptText="Expense Amount" />
-                            <Button fx:id="addExpenseButton" onAction="#addExpense" styleClass="submit-button" text="Add Expense" textAlignment="CENTER" textFill="#e80606">
-                                <effect>
-                                    <ColorAdjust hue="0.19" />
-                                </effect>
-                            </Button>
-                        </VBox>
-                    </content>
-                </Tab>
-                <Tab text="Current Balance">
-                    <content>
-                        <VBox alignment="CENTER" prefHeight="221.0" prefWidth="398.0" spacing="10">
-                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="59.0" prefWidth="328.0" text="Your Current Balance" textAlignment="CENTER" textFill="#171717">
-                                <font>
-                                    <Font name="Futura Medium" size="33.0" />
-                                </font>
-                            </Label>
-                            <TextField fx:id="currentBalanceField" alignment="CENTER" promptText="Current Balance" prefWidth="328.0" />
-                        </VBox>
-                    </content>
-                </Tab>
-            </tabs>
-        </TabPane>
-    </center>
-    <effect>
-        <ColorAdjust brightness="0.12" hue="-0.28" />
-    </effect>
-</BorderPane>
+    <TextField fx:id="salaryInput" alignment="CENTER" promptText="Enter Monthly Salary" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15; -fx-padding: 5 10; -fx-border-color: #81C784;" />
+    <TextField fx:id="expenseInput" alignment="CENTER" promptText="Enter Expense Amount" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15; -fx-padding: 5 10; -fx-border-color: #81C784;" />
+    <TextField fx:id="commentInput" alignment="CENTER" promptText="Enter Expense Comment" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15; -fx-padding: 5 10; -fx-border-color: #81C784;" />
+
+    <Button onAction="#handleSubmit" style="-fx-background-color: linear-gradient(#66BB6A, #43A047); -fx-background-radius: 20; -fx-border-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 0,0,0,5);" text="Submit" textAlignment="CENTER" textFill="#FFFFFF">
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <effect>
+            <GaussianBlur radius="0.0" />
+        </effect>
+    </Button>
+
+    <Label fx:id="resultLabel" style="-fx-font-weight: bold; -fx-text-fill: #5C6B73;" text="Remaining Salary: " />
+
+</VBox>

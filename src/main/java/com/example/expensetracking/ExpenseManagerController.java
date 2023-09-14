@@ -1,40 +1,52 @@
 package com.example.expensetracking;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.event.ActionEvent;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 public class ExpenseManagerController {
-    @FXML
-    private TabPane tabPane;
 
     @FXML
-    private TextField employeeNameField;
+    private TextField salaryInput;
 
     @FXML
-    private TextField salaryAmountField;
+    private TextField expenseInput;
 
     @FXML
-    private TextField expenseNameField;
+    private TextField commentInput;
 
     @FXML
-    private TextField expenseAmountField;
+    private Label resultLabel;
 
     @FXML
-    private Button submitSalaryButton;
+    public void handleSubmit() {
+        float salary = Float.parseFloat(salaryInput.getText().isEmpty() ? "0" : salaryInput.getText());
+        float expense = Float.parseFloat(expenseInput.getText().isEmpty() ? "0" : expenseInput.getText());
+        String comment = commentInput.getText();
 
-    @FXML
-    private Button addExpenseButton;
-    @FXML
-    private void submitSalary(ActionEvent event) {
+        if (salary > 0 && ExpenseManagerApp.hasSalaryForCurrentMonth()) {
+            resultLabel.setText("You've already entered salary this month. Enter only expense and comment.");
+            return;
+        }
 
+        saveTransaction(salary, expense, comment);
+
+        float remaining = ExpenseManagerApp.getRemainingSalary();
+        resultLabel.setText("Remaining Salary: " + remaining);
     }
-    @FXML
-    private void addExpense(ActionEvent event) {
 
+    private void saveTransaction(float salary, float expense, String comment) {
+        try (Connection conn = ExpenseManagerApp.connectToDB();
+             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO transactions(date, salary, expense, comment) VALUES(CURDATE(), ?, ?, ?)")) {
+            pstmt.setFloat(1, salary);
+            pstmt.setFloat(2, expense);
+            pstmt.setString(3, comment);
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
-
-
