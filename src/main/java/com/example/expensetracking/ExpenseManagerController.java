@@ -3,9 +3,10 @@ package com.example.expensetracking;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
+import javafx.scene.image.ImageView;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+
 
 public class ExpenseManagerController {
 
@@ -20,6 +21,8 @@ public class ExpenseManagerController {
 
     @FXML
     private Label resultLabel;
+    @FXML
+    private ImageView userIcon;
 
     @FXML
     public void handleSubmit() {
@@ -37,13 +40,13 @@ public class ExpenseManagerController {
         float remaining = ExpenseManagerApp.getRemainingSalary();
         resultLabel.setText("Remaining Salary: " + remaining);
     }
-
     private void saveTransaction(float salary, float expense, String comment) {
         try (Connection conn = ExpenseManagerApp.connectToDB();
-             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO transactions(date, salary, expense, comment) VALUES(CURDATE(), ?, ?, ?)")) {
-            pstmt.setFloat(1, salary);
-            pstmt.setFloat(2, expense);
-            pstmt.setString(3, comment);
+             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO transactions(user_id, date, salary, expense, comment) VALUES(?, CURDATE(), ?, ?, ?)")) {
+            pstmt.setInt(1, ExpenseManagerApp.getCurrentUser().getId());
+            pstmt.setFloat(2, salary);
+            pstmt.setFloat(3, expense);
+            pstmt.setString(4, comment);
             pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
