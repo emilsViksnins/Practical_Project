@@ -2,8 +2,8 @@
 
 
 ## Description
-The Expense Tracking Application is a simple JavaFx-based application to help people manage their personal expenses efficiently.
-The application provides an interface to input, categorize, and track expenses, helping users maintain financial records.
+The Expense Tracking Application, developed using JavaFX, offers a solution for individuals seeking basic financial management capabilities.
+This application furnishes a simple interface for the seamless entry, categorization, and monitoring of personal expenses, ensuring financial record-keeping for its users
 
 ## Prerequisites for launching
  - Maven
@@ -11,9 +11,9 @@ The application provides an interface to input, categorize, and track expenses, 
  - IntelliJ 
 
 ## Launch procedure
-Git clone this repository locally.
-Verify that MySQL is running on the target system.
-Create a database: expense_manager and tables: transactions and user. (All provided in MySQL Dump file)
+-Git clone this repository locally.
+-Verify that MySQL is running on the target system.
+-Create a database: expense_manager and tables: transactions and user. (All provided in MySQL Dump file)
 For testing purposes, the Dump file also contains test users and passwords to log into the application. 
 **IMPORTANT** To successfully connect to the database, change the default password and username ("root") in the ExpenseManagerApp class to your MySQL password and username.
 
@@ -26,12 +26,11 @@ For testing purposes, the Dump file also contains test users and passwords to lo
        3. Add the Foreign Key constraint back.
 
 ## Features
-- Categories for organizing expenses(e.g., food, utilities,).
-- Data storage in a MySQL database.
-- Viewing and editing of expense records.
-**NOTE** Since this is personal practicing project, passwords are being stored in plaintext in a database.
-  Instead, in the real time project, they should be hashed (and ideally salted) before being stored.
-
+- Categories for expenditure classification, including but not limited to food, utilities, etc.
+- Integration with a MySQL database for robust data retention.
+- Functionalities for reviewing and modifying expense records.
+**NOTE** This project serves as a prototype for educational purposes. As such, it currently retains passwords in plaintext within the database.
+For a full-fledged deployment, it's imperative to implement password hashing, complemented with salting, to ensure data security.
 ## Screenshots
 
 <img width="698" alt="Screenshot 2023-09-21 at 15 35 31" src="https://github.com/emilsViksnins/Practical_Project/assets/135007928/880f2196-b7d3-4b71-8e6a-72ec057d8e79">
