@@ -13,7 +13,7 @@ This application furnishes a simple interface for the seamless entry, categoriza
 ## Launch procedure
 -Git clone this repository locally.
 -Verify that MySQL is running on the target system.
--Create a database: expense_manager and tables: transactions and user. (All provided in MySQL Dump file)
+-Create a database: expense_manager and tables: transactions and user. (All provided in MySQL Dump file).
 For testing purposes, the Dump file also contains test users and passwords to log into the application. 
 **IMPORTANT** To successfully connect to the database, change the default password and username ("root") in the ExpenseManagerApp class to your MySQL password and username.
 
@@ -46,7 +46,7 @@ For a full-fledged deployment, it's imperative to implement password hashing, co
 
 
 ## How to Contribute
-This is my personal practicing project.
+This is my personal practice project.
 
 ## Author
 Emils Viksnins
